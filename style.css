@@ -1,0 +1,539 @@
+/* ======================== RESET E BASE ======================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    padding-top: 80px;
+}
+
+:root {
+    --cor-primaria: #fdd73a;
+    --cor-preta: #000;
+    --cor-branca: #fff;
+    --cor-link-hover: #007bff;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* ======================== HEADER ======================== */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: var(--cor-preta);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 10px 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.navbar .logo img {
+    width: 100px;
+    transition: transform 0.3s ease;
+}
+
+.navbar .logo img:hover {
+    transform: scale(1.1);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+}
+
+.nav-links li {
+    margin-left: 30px;
+    position: relative;
+}
+
+.nav-links a {
+    color: var(--cor-branca);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.2rem;
+    padding: 5px 0;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-links a:hover,
+.nav-links a:focus {
+    color: var(--cor-primaria);
+    transform: translateY(-2px);
+    outline: none;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: var(--cor-primaria);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-links-right {
+    background-color: var(--cor-primaria);
+    border-radius: 8px;
+    padding: 8px 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nav-links-right a {
+    color: var(--cor-preta);
+    font-weight: 600;
+    font-size: 1.2rem;
+    text-decoration: none;
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+
+.nav-links-right:hover {
+    background-color: #e2b400;
+    transform: scale(1.05);
+}
+
+.nav-links-right a:hover {
+    color: var(--cor-branca);
+}
+
+/* ======================== SOBRE ======================== */
+#sobre {
+    position: relative;
+    background-image: url('img/H2.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    aspect-ratio: 16 / 9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--cor-branca);
+    text-align: center;
+}
+
+#sobre .container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+#sobre h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: var(--cor-primaria);
+}
+
+#sobre p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+/* ======================== SEÇÕES GERAIS ======================== */
+.section {
+    padding: 60px 0;
+    margin-bottom: 30px;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--cor-preta);
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+ul li {
+    font-size: 1.2rem;
+    margin: 8px 0;
+}
+
+/* ======================== TABELA ======================== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+table th {
+    background-color: var(--cor-preta);
+    color: var(--cor-branca);
+}
+
+/* ======================== SLIDER ======================== */
+.foto-slider {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.slider-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.foto {
+    flex: 0 0 20%;
+    padding: 5px;
+}
+
+.foto img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+button.prev, button.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: var(--cor-branca);
+    border: none;
+    padding: 15px;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button.prev:hover, button.next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+button.prev { left: 20px; }
+button.next { right: 20px; }
+
+/* ======================== TIME ATUAL ======================== */
+#time .container {
+    text-align: center;
+}
+
+#time h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.times {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.time {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.time-logo {
+    width: 200px;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.time p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+/* ======================== LIGHTBOX ======================== */
+#lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+    z-index: 9999;
+}
+
+#lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+}
+
+#lightbox.ativo {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ======================== FOOTER ======================== */
+footer {
+    background-color: #111;
+    color: var(--cor-branca);
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.social-media {
+    margin-top: 20px;
+}
+
+.social-media a {
+    color: var(--cor-branca);
+    margin: 0 10px;
+    font-size: 20px;
+    transition: color 0.3s;
+}
+
+.social-media a:hover {
+    color: #00acee;
+}
+
+/* ======================== WHATSAPP ======================== */
+.btn-whatsapp {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #25D366;
+    color: var(--cor-branca);
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 15px 0;
+    transition: background-color 0.3s ease;
+}
+
+.btn-whatsapp:hover {
+    background-color: #1ebd5c;
+}
+
+/* ======================== FORMULÁRIO ======================== */
+.form-contato {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 500px;
+    margin: auto;
+    background-color: var(--cor-branca);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.form-contato input,
+.form-contato textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.form-contato button {
+    background-color: var(--cor-link-hover);
+    color: var(--cor-branca);
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.form-contato button:hover {
+    background-color: #0056b3;
+}
+
+/* ======================== MENU MOBILE ======================== */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background: var(--cor-branca);
+    border-radius: 2px;
+    transition: 0.3s;
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* ======================== JOGOS LISTA ======================== */
+.jogos-lista {
+    list-style: none;
+    padding: 0;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.jogos-lista li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    padding: 15px 30px;
+    width: 100%;
+    max-width: 700px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    flex-wrap: nowrap;
+}
+
+.logo-time {
+    height: 60px;
+    width: 60px;
+    object-fit: contain;
+}
+
+.placar {
+    font-weight: bold;
+    font-size: 2rem;
+    color: var(--cor-preta);
+    min-width: 100px;
+    text-align: center;
+}
+
+/* ======================== RESPONSIVO ======================== */
+@media (max-width: 768px) {
+    .nav-links {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 100%;
+        background: var(--cor-preta);
+        flex-direction: column;
+        align-items: center;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-in-out;
+    }
+
+    .nav-links.open {
+        max-height: 500px;
+    }
+
+    .nav-links li {
+        margin: 20px 0;
+    }
+
+    .foto {
+        flex: 0 0 100%;
+    }
+
+    .slider-container {
+        flex-direction: column;
+    }
+
+    .foto img {
+        width: 100%;
+    }
+
+    button.prev, button.next {
+        font-size: 1.5rem;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-time {
+        width: 40px;
+        height: 40px;
+    }
+
+    .placar {
+        font-size: 1.5rem;
+    }
+
+    #sobre h2 {
+        font-size: 2rem;
+    }
+
+    #sobre p {
+        font-size: 1rem;
+    }
+}
+
+#caracteristicas {
+    background-color: #ffffff;
+}
+
+#estatisticas {
+    background-color: #ffffff;
+}
+
+#flaxniteroi {
+    background-color: #ffffff;
+}
+
+#flaxflu {
+    background-color: #ffffff;
+}
