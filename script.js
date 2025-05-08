@@ -1,4 +1,4 @@
-const imagesPerPage = 5;
+const imagesPerPage = 1;
 
 // Inicializa todos os sliders da página
 document.querySelectorAll('.foto-slider').forEach(slider => {
@@ -10,7 +10,6 @@ document.querySelectorAll('.foto-slider').forEach(slider => {
     container.dataset.currentPage = "0";
     container.dataset.totalPages = totalPages;
 
-    // Botões de navegação
     const prevButton = slider.querySelector('.prev');
     const nextButton = slider.querySelector('.next');
 
@@ -22,7 +21,7 @@ document.querySelectorAll('.foto-slider').forEach(slider => {
         mudarPagina(slider, 1);
     });
 
-    mudarPagina(slider, 0); // Inicializa na primeira página
+    mudarPagina(slider, 0);
 });
 
 function mudarPagina(slider, direction) {
@@ -35,7 +34,6 @@ function mudarPagina(slider, direction) {
 
     currentPage += direction;
 
-    // Só reinicia quando realmente passar do total de páginas
     if (currentPage >= totalPages) {
         currentPage = 0;
     } else if (currentPage < 0) {
@@ -51,9 +49,12 @@ function mudarPagina(slider, direction) {
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
 
-// Atribui clique nas imagens para abrir o lightbox
-document.querySelectorAll('.foto img').forEach(img => {
+let imagens = Array.from(document.querySelectorAll('.foto img'));
+let imagemAtualIndex = 0;
+
+imagens.forEach((img, index) => {
     img.addEventListener('click', function () {
+        imagemAtualIndex = index;
         abrirLightbox(this.src);
     });
 });
@@ -67,25 +68,70 @@ function fecharLightbox() {
     lightbox.classList.remove('ativo');
 }
 
-// Fecha lightbox com ESC
 document.addEventListener('keydown', (event) => {
+    if (!lightbox.classList.contains('ativo')) return;
+
     if (event.key === 'Escape') {
         fecharLightbox();
+    } else if (event.key === 'ArrowRight') {
+        imagemAtualIndex = (imagemAtualIndex + 1) % imagens.length;
+        lightboxImg.src = imagens[imagemAtualIndex].src;
+    } else if (event.key === 'ArrowLeft') {
+        imagemAtualIndex = (imagemAtualIndex - 1 + imagens.length) % imagens.length;
+        lightboxImg.src = imagens[imagemAtualIndex].src;
     }
 });
 
-// Fecha lightbox ao clicar fora da imagem
 lightbox.addEventListener('click', (event) => {
     if (event.target === lightbox) {
         fecharLightbox();
     }
 });
 
-// Menu mobile
-const menuToggle = document.getElementById('mobile-menu');
+document.querySelector('.lightbox-seta.esquerda').addEventListener('click', () => {
+    imagemAtualIndex = (imagemAtualIndex - 1 + imagens.length) % imagens.length;
+    lightboxImg.src = imagens[imagemAtualIndex].src;
+});
+
+document.querySelector('.lightbox-seta.direita').addEventListener('click', () => {
+    imagemAtualIndex = (imagemAtualIndex + 1) % imagens.length;
+    lightboxImg.src = imagens[imagemAtualIndex].src;
+});
+
+document.querySelector('.lightbox-fechar').addEventListener('click', fecharLightbox);
+
+// Menu mobile (integrado com sua versão anterior)
+const toggle = document.getElementById('menu-toggle') || document.getElementById('mobile-menu');
 const navLinks = document.querySelector('.nav-links');
 
-menuToggle?.addEventListener('click', () => {
-    menuToggle.classList.toggle('active');
+toggle?.addEventListener('click', () => {
+    toggle.classList.toggle('active');
     navLinks.classList.toggle('open');
+});
+
+let currentSlide = 0;
+const slides = document.querySelectorAll('.carousel-container img');
+const totalSlides = slides.length;
+const prevButton = document.querySelector('.prev');
+const nextButton = document.querySelector('.next');
+
+// Função para mudar de slide
+function changeSlide(direction) {
+    slides[currentSlide].classList.remove('active');
+    currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+    slides[currentSlide].classList.add('active');
+}
+
+// Rotação automática do carrossel
+setInterval(() => {
+    changeSlide(1);
+}, 5000); // Troca a cada 3 segundos
+
+// Navegação com as setas
+prevButton.addEventListener('click', () => {
+    changeSlide(-1);
+});
+
+nextButton.addEventListener('click', () => {
+    changeSlide(1);
 });

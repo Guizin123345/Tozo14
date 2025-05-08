@@ -16,17 +16,17 @@
             <img src="img/logoH.jpeg" alt="Logo">
           </div>
       
-          <div class="menu-toggle" id="mobile-menu">
+          <div class="menu-toggle" id="menu-toggle">
             <span></span>
             <span></span>
             <span></span>
           </div>
       
           <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#sobre">Sobre</a></li>
-            <li><a href="#servicos">Serviços</a></li>
-            <li><a href="#produtos">Produtos</a></li>
+            <li><a href="#sobre">Inicio</a></li>
+            <li><a href="#caracteristicas">Características</a></li>
+            <li><a href="#jogos">Jogos</a></li>
+            <li><a href="#estatisticas">Estatísticas</a></li>
           </ul>
           <ul class="nav-links-right">
             <li><a href="#contato" class="contato">Contato</a></li>
@@ -37,13 +37,19 @@
 
     <!-- Seções do Conteúdo -->
     <main>
-        <!-- Seção Sobre o Jogador -->
-        <section id="sobre" class="section bg-primary"  data-aos="fade-up">
-            <div class="container">
-                <h2>Sobre o Jogador</h2>
-                <p>TOZO, um talento em ascensão, conquistando cada vez mais fãs e vitórias. Conheça mais sobre sua trajetória.</p>
+        <section id="sobre" class="section bg-primary" data-aos="fade-up">
+            <div class="carousel-container">
+                <img src="carrocel/1.png" class="active" alt="Imagem 1">
+                <img src="carrocel/2.png" alt="Imagem 2">
+                <img src="carrocel/3.png" alt="Imagem 3">
+                <img src="carrocel/4.png" alt="Imagem 4">
+                <div class="carousel-controls">
+                    <span class="prev">&#10094;</span>
+                    <span class="next">&#10095;</span>
+                </div>
             </div>
         </section>
+        
 
        <!-- Time Atual -->
 <section id="time" class="section" data-aos="fade-up">
@@ -113,77 +119,81 @@
         <section id="estatisticas" class="section bg-light" data-aos="fade-up">
             <div class="container">
                 <h2>Estatísticas Recentes</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Data</th>
-                            <th>Jogo</th>
-                            <th>Tempo Jogado (min)</th>
-                            <th>Rebotes</th>
-                            <th>Pontuação</th>
-                            <th>Roubo de Bolas</th>
-                            <th>Bloqueios/Tocos</th>
-                            <th>Assistências</th>
-                            <th>Média de Tempo por Ponto (min)</th>
-                            <th>% do Placar</th>
-                            <th>Observações</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>23/03/2025</td>
-                            <td>Flamengo x CSN</td>
-                            <td>19</td>
-                            <td>12</td>
-                            <td>9</td>
-                            <td>4</td>
-                            <td>1</td>
-                            <td>0</td>
-                            <td>2</td>
-                            <td>11%</td>
-                            <td>Somente DUPLO</td>
-                        </tr>
-                        <tr>
-                            <td>30/03/2025</td>
-                            <td>Flamengo x Fluminense</td>
-                            <td>25</td>
-                            <td>16</td>
-                            <td>6</td>
-                            <td>2</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>4</td>
-                            <td>9%</td>
-                            <td>Somente DUPLO</td>
-                        </tr>
-                        <tr>
-                            <td>05/04/2025</td>
-                            <td>Flamengo x Botafogo</td>
-                            <td>16</td>
-                            <td>12</td>
-                            <td>11</td>
-                            <td>1</td>
-                            <td>0</td>
-                            <td>2</td>
-                            <td>1</td>
-                            <td>14%</td>
-                            <td>Duplo-Duplo</td>
-                        </tr>
-                        <tr>
-                            <td>13/04/2025</td>
-                            <td>Flamengo x Niterói</td>
-                            <td>22</td>
-                            <td>21</td>
-                            <td>25</td>
-                            <td>2</td>
-                            <td>1</td>
-                            <td>0</td>
-                            <td>1</td>
-                            <td>21%</td>
-                            <td>Duplo-Duplo</td>
-                        </tr>
-                    </tbody>
-                </table>
+                
+                <div class="tabela-responsiva">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Data</th>
+                                <th>Jogo</th>
+                                <th>Tempo Jogado (min)</th>
+                                <th>Rebotes</th>
+                                <th>Pontuação</th>
+                                <th>Roubo de Bolas</th>
+                                <th>Bloqueios/Tocos</th>
+                                <th>Assistências</th>
+                                <th>Média de Tempo por Ponto (min)</th>
+                                <th>% do Placar</th>
+                                <th>Observações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>23/03/2025</td>
+                                <td>Flamengo x CSN</td>
+                                <td>19</td>
+                                <td>12</td>
+                                <td>9</td>
+                                <td>4</td>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>2</td>
+                                <td>11%</td>
+                                <td>Somente DUPLO</td>
+                            </tr>
+                            <tr>
+                                <td>30/03/2025</td>
+                                <td>Flamengo x Fluminense</td>
+                                <td>25</td>
+                                <td>16</td>
+                                <td>6</td>
+                                <td>2</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>4</td>
+                                <td>9%</td>
+                                <td>Somente DUPLO</td>
+                            </tr>
+                            <tr>
+                                <td>05/04/2025</td>
+                                <td>Flamengo x Botafogo</td>
+                                <td>16</td>
+                                <td>12</td>
+                                <td>11</td>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>2</td>
+                                <td>1</td>
+                                <td>14%</td>
+                                <td>Duplo-Duplo</td>
+                            </tr>
+                            <tr>
+                                <td>13/04/2025</td>
+                                <td>Flamengo x Niterói</td>
+                                <td>22</td>
+                                <td>21</td>
+                                <td>25</td>
+                                <td>2</td>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>21%</td>
+                                <td>Duplo-Duplo</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+        
             </div>
         </section>
         
@@ -233,8 +243,11 @@
         </section>
                       
                       <!-- Lightbox -->
-                      <div id="lightbox">
-                        <img id="lightbox-img" src="" alt="Foto Ampliada">
+                      <div id="lightbox" class="lightbox">
+                        <span class="lightbox-fechar">&times;</span>
+                        <img id="lightbox-img" src="" alt="Imagem em tela cheia">
+                        <div class="lightbox-seta esquerda">&#10094;</div>
+                        <div class="lightbox-seta direita">&#10095;</div>
                       </div>
         
         <section id="flaxflu" class="section" data-aos="fade-up">
@@ -271,16 +284,20 @@
                     <h3>Vídeo completo do jogo</h3>
                 </div><br>
                  <!-- Link do vídeo do YouTube embutido -->
-                 <div class="video-container" style="text-align: center;">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/CAEkiM1OSTo?si=qUgy83eNBJrb1cx7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                 <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/CAEkiM1OSTo?si=qUgy83eNBJrb1cx7"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
-                <div class="video-title" style="text-align: center; margin-top: 20px;">
+                
+                <div class="video-title">
                     <h3>Melhores Momentos</h3>
                 </div><br>
-                <div class="video-container" style="text-align: center;">
-                    <img src="img/EM BREVE.png" alt="embreve" width="560" height="315" style="object-fit: cover;">
+                
+                <div class="video-container">
+                    <img src="img/EM BREVE.png" alt="embreve">
                 </div>
-            </div>
         </section>
                       
                       <!-- Lightbox -->
@@ -386,14 +403,14 @@
         <p>Você pode enviar uma mensagem diretamente pelo WhatsApp ou preencher o formulário abaixo:</p>
 
         <!-- Botão WhatsApp -->
-        <a href="https://wa.me/5527998181913?text=Olá%20TOZO!%20Gostaria%20de%20falar%20com%20você." 
+        <a href="https://wa.me/5527999673237?text=Olá%20TOZO!%20Gostaria%20de%20falar%20com%20você." 
            target="_blank" 
            class="btn-whatsapp">
             <i class="fab fa-whatsapp"></i> Falar pelo WhatsApp
         </a>
 
         <!-- Formulário de Contato -->
-        <form action="https://formsubmit.co/magnororiz@gmail.com" method="POST" class="form-contato" data-aos="fade-up">
+        <form action="https://formsubmit.co/sisi.mottavix@gmail.com" method="POST" class="form-contato" data-aos="fade-up">
             <input type="text" name="nome" placeholder="Seu nome" required>
             <input type="email" name="email" placeholder="Seu e-mail" required>
             <textarea name="mensagem" rows="5" placeholder="Sua mensagem..." required></textarea>
