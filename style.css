@@ -39,7 +39,7 @@ header {
     z-index: 1000;
     background-color: var(--cor-preta);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    padding: 10px 0;
+    padding: 5px 0;
 }
 
 .navbar {
@@ -52,7 +52,7 @@ header {
 }
 
 .navbar .logo img {
-    width: 100px;
+    width: 70px;
     transition: transform 0.3s ease;
 }
 
@@ -773,7 +773,7 @@ footer {
     z-index: 1000;
     background-color: var(--cor-preta);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    padding: 10px 0;
+    padding: 5px 0;
   }
   
   .navbar {
@@ -917,7 +917,7 @@ footer {
     }
   
     .navbar .logo img {
-      width: 80px;
+      width: 40px;
     }
   
     .jogos-lista li {
@@ -963,6 +963,17 @@ footer {
       padding: 40px 20px;
     }
   }
+
+    .nav-links-right {
+    padding: 4px 10px;
+    border-radius: 4px;
+  }
+
+  .nav-links-right a.contato {
+    font-size: 13px;
+    line-height: 1.2;
+  }
+
   
   .video-container {
     position: relative;
@@ -987,4 +998,81 @@ footer {
 .video-title {
     text-align: center;
     margin-top: 20px;
+}
+
+/* Submenu sobrepondo a tela inteira */
+.navbar .nav-links .submenu {
+    position: relative;
+}
+
+.navbar .nav-links .submenu .submenu-links {
+    position: fixed;
+    top: 60px; /* ajuste conforme altura do header */
+    left: 0;
+    width: 100%;
+    background-color: #000;
+    color: #fff;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Quando aberto */
+.navbar .nav-links .submenu.open .submenu-links {
+    max-height: 400px;
+}
+
+/* Itens do submenu */
+.navbar .nav-links .submenu .submenu-links li {
+    padding: 15px;
+    text-align: center;
+}
+
+.navbar .nav-links .submenu .submenu-links li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+/* Hover dourado + sublinhado */
+.navbar .nav-links .submenu .submenu-links li a:hover {
+    color: gold;
+}
+
+.navbar .nav-links .submenu .submenu-links li a:hover::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -4px;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 2px;
+    background-color: gold;
+}
+
+/* Seta do menu */
+.navbar .nav-links .submenu .arrow {
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+.navbar .nav-links .submenu.open .arrow {
+    transform: rotate(180deg);
+}
+
+/* Botão X */
+.navbar .nav-links .submenu .submenu-close {
+    text-align: right;
+    padding: 10px 20px;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+}
+.navbar .nav-links .submenu .submenu-close:hover {
+    color: gold;
 }

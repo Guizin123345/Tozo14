@@ -1,4 +1,4 @@
-const imagesPerPage = 1;
+const imagesPerPage = getImagesPerPage();
 
 // Inicializa todos os sliders da página
 document.querySelectorAll('.foto-slider').forEach(slider => {
@@ -7,6 +7,7 @@ document.querySelectorAll('.foto-slider').forEach(slider => {
     const totalSlides = slides.length;
     const totalPages = Math.ceil(totalSlides / imagesPerPage);
 
+    container.dataset.imagesPerPage = imagesPerPage;
     container.dataset.currentPage = "0";
     container.dataset.totalPages = totalPages;
 
@@ -24,11 +25,17 @@ document.querySelectorAll('.foto-slider').forEach(slider => {
     mudarPagina(slider, 0);
 });
 
+// Função que retorna o número de imagens por página com base no tamanho da tela
+function getImagesPerPage() {
+    return window.innerWidth <= 768 ? 1 : 5; // 1 imagem no mobile, 5 no desktop
+}
+
 function mudarPagina(slider, direction) {
     const container = slider.querySelector('.slider-container');
     const slides = container.querySelectorAll('.foto');
     const slideWidth = slides[0].offsetWidth;
 
+    const imagesPerPage = parseInt(container.dataset.imagesPerPage);
     const totalPages = parseInt(container.dataset.totalPages);
     let currentPage = parseInt(container.dataset.currentPage);
 
@@ -134,4 +141,29 @@ prevButton.addEventListener('click', () => {
 
 nextButton.addEventListener('click', () => {
     changeSlide(1);
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const submenu = document.querySelector('.navbar .nav-links .submenu');
+    const toggleLink = submenu.querySelector('a');
+    const closeBtn = submenu.querySelector('.submenu-close');
+
+    // Abre/fecha no clique
+    toggleLink.addEventListener('click', function (e) {
+        e.preventDefault();
+        submenu.classList.toggle('open');
+    });
+
+    // Fecha com o botão "X"
+    closeBtn.addEventListener('click', function () {
+        submenu.classList.remove('open');
+    });
+
+    // Fecha ao clicar fora
+    document.addEventListener('click', function (e) {
+        const isInside = submenu.contains(e.target);
+        if (!isInside) {
+            submenu.classList.remove('open');
+        }
+    });
 });
