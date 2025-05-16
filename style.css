@@ -1076,3 +1076,113 @@ footer {
 .navbar .nav-links .submenu .submenu-close:hover {
     color: gold;
 }
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.carousel-container img {
+  width: 100%;
+  height: auto; /* Faz com que a altura se ajuste proporcionalmente */
+  display: none;
+  object-fit: contain; /* ou 'cover', dependendo do efeito desejado */
+}
+
+.carousel-container img.active {
+  display: block;
+}
+
+/* Botões de controle */
+.carousel-controls {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  padding: 0 10px;
+}
+
+.carousel-controls .prev,
+.carousel-controls .next {
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+  .carousel-container img {
+    object-fit: contain; /* ou 'cover' se quiser que preencha tudo */
+    height: auto;
+  }
+}
+
+.placar-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+
+.placar-container .time {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.placar-container .time-logo {
+  width: 160px;
+  height: 160px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.placar-container .time-logo:hover {
+  transform: scale(1.05);
+}
+
+.placar-container .time-name {
+  margin-top: 8px;
+  font-size: 16px;
+  color: #333;
+}
+
+.placar-container .placar {
+  font-size: 32px;
+  font-weight: bold;
+  padding: 12px 24px;
+  background-color: #eee;
+  border-radius: 10px;
+}
+
+.versus {
+  margin: 0 10px;
+  color: #555;
+}
+
+/* Responsivo para mobile */
+@media (max-width: 600px) {
+  .placar-container {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .placar-container .time-logo {
+    width: 130px;
+    height: 130px;
+  }
+
+  .placar-container .placar {
+    font-size: 26px;
+    padding: 10px 20px;
+  }
+}
+
